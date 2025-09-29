@@ -39,8 +39,13 @@
     var wasCorrect = "<%= locals.wasCorrect %>";
     console.log(wasCorrect)
     if (wasCorrect === "false") {
-      alert('Game over! Final best score: <%= locals.totalScore %>');
-      document.getElementById("app").innerHTML = '<a href="/" class="restart-button">Restart</a>'
+      var submitBtn = document.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      setTimeout(function() {
+        submitBtn.disabled = false;
+        alert('Game over! Final best score: <%= locals.totalScore %>');
+        document.getElementById("app").innerHTML = '<a href="/" class="restart-button">Restart</a>'
+      }, 2000);
     }
 
 

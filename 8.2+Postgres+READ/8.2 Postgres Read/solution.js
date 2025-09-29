@@ -6,7 +6,7 @@ const db = new pg.Client({
   user: "postgres",
   host: "localhost",
   database: "world",
-  password: "123456",
+  password: "postgres",
   port: 5432,
 });
 
@@ -21,6 +21,7 @@ db.query("SELECT * FROM flags", (err, res) => {
     console.error("Error executing query", err.stack);
   } else {
     quiz = res.rows;
+    
   }
   db.end();
 });
@@ -63,6 +64,7 @@ async function nextQuestion() {
   const randomCountry = quiz[Math.floor(Math.random() * quiz.length)];
 
   currentQuestion = randomCountry;
+  console.log(currentQuestion);
 }
 
 app.listen(port, () => {

@@ -72,12 +72,12 @@ button:hover {
 
 .checkmark {
   color: transparent;
-  animation: checkmark 0.5s ease;
+  animation: checkmark 1s ease;
 }
 
 .cross {
   color: transparent;
-  animation: cross 0.5s ease;
+  animation: cross 1s ease;
 }
 
 @keyframes checkmark {
