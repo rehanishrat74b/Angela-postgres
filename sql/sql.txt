@@ -1,0 +1,23 @@
+-- Table: public.world_food
+
+-- DROP TABLE IF EXISTS public.world_food;
+
+CREATE TABLE IF NOT EXISTS public.world_food
+(
+    id integer NOT NULL DEFAULT nextval('world_food_id_seq'::regclass),
+    country character varying(45) COLLATE pg_catalog."default",
+    rice double precision,
+    wheat double precision,
+    CONSTRAINT world_food_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.world_food
+    OWNER to postgres;
+
+
+--------------------------------------
+
+select country from world_food where country like 'U' || '%';
+
