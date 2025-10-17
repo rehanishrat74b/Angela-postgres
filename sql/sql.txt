@@ -18,6 +18,22 @@ ALTER TABLE IF EXISTS public.world_food
 
 
 --------------------------------------
+create table visited_countries(
+	id serial primary key,
+	country_code char(2) not null unique)
+)
+-------------------------------------------
+
+
+insert into world_food(country,rice_production,wheat_production)
+values('Italy',1.46,7.3);
 
 select country from world_food where country like 'U' || '%';
 
+-----------------------------------------------------------------------------
+"SELECT country_code FROM countries WHERE LOWER(country_name) LIKE '%' || $1 || '%';",
+
+ const result = await db.query(
+      "SELECT country_code FROM countries WHERE LOWER(country_name) LIKE '%' || $1 || '%';",
+      [input.toLowerCase()]
+    );
